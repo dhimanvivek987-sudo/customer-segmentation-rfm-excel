@@ -1,204 +1,69 @@
 # Customer Segmentation using RFM Analysis (Excel & Power Query)
 
-## Project Overview
+## Project Description
 
-This project performs **Customer Segmentation using RFM (Recency, Frequency, Monetary) analysis** on raw transactional data to identify **high-value, loyal, at-risk, and new customers**.
+This project demonstrates an end-to-end customer segmentation analysis using the RFM (Recency, Frequency, Monetary) framework.  
+The entire workflow is implemented in Microsoft Excel, leveraging Power Query for data cleaning and merging, and Excel formulas, PivotTables, and dashboards for analysis and visualization.
 
-The entire workflow is built **end-to-end in Microsoft Excel**, using **Power Query for data cleaning and merging**, **Excel formulas for analytics**, and **PivotTables & dashboards** for business insights.
-
-This project simulates a **real-world Business Analyst use case**, starting from messy raw data and ending with **actionable marketing recommendations**.
+The project simulates a real-world Business Analyst use case, starting from raw transactional data and ending with actionable insights to support marketing and customer retention strategies.
 
 ---
 
 ## Business Objectives
 
 - Segment customers based on purchasing behavior
-- Identify **VIP / high-value customers**
-- Detect **at-risk customers** with churn signals
-- Enable **data-driven marketing strategies**
-- Showcase **Power Query, Excel analytics, and business thinking**
+- Identify high-value (VIP) customers
+- Detect at-risk customers showing churn signals
+- Enable data-driven marketing and retention decisions
+- Demonstrate Excel, Power Query, and business analytics skills
 
 ---
 
-## Dataset Description
+## Dataset Overview
 
-### Raw Data Sources
+### Raw Data Files
 
-| File | Description |
-|----|------------|
-| `transactions.csv` | Transaction-level purchase data |
-| `customers.csv` | Customer master data |
+| File Name | Description |
+|----------|-------------|
+| transactions.csv | Transaction-level purchase data |
+| customers.csv | Customer master data |
+| Customer_seg_excel.csv | Final customer-level dataset after processing |
 
 ### Key Transaction Columns
 
-- `transaction_id`
-- `customer_id`
-- `product_name`
-- `product_category`
-- `quantity`
-- `price`
-- `transaction_date`
-- `store_location`
-- `payment_method`
-- `discount_applied`
+- transaction_id  
+- customer_id  
+- product_name  
+- product_category  
+- quantity  
+- price  
+- transaction_date  
+- store_location  
+- payment_method  
+- discount_applied  
 
 ---
 
-## 🛠 Tools & Skills Used
+## Tools and Skills Used
 
 - Microsoft Excel
 - Power Query
-- Advanced Excel formulas (`IF`, `AND`, `QUARTILE.INC`)
-- PivotTables & PivotCharts
+- Advanced Excel formulas (IF, AND, QUARTILE.INC)
+- PivotTables and PivotCharts
 - Conditional Formatting
-- Business analytics & segmentation logic
+- Customer analytics and segmentation logic
 
 ---
 
-## Data Preparation & Modeling
+## Data Preparation and Modeling
 
 ### Data Cleaning (Power Query)
 
-- Removed records with missing `customer_id`
-- Replaced missing quantities using business assumption (`quantity = 1`)
-- Filtered invalid data (`quantity > 0`, `price > 0`)
-- Converted columns to correct data types
-- Created `total_amount = quantity × price`
+The following steps were performed on the raw transaction data:
 
----
-
-### Data Merging (Power Query)
-
-- Performed **Left Join** between:
-  - `transactions.csv` and `customers.csv`
-- Join key: `customer_id`
-- Result: **Enriched transaction dataset**
-
----
-
-### Customer-Level Aggregation
-
-Data was aggregated to **one row per customer**:
-
-| Metric | Description |
-|-----|------------|
-| Last Purchase Date | Most recent transaction |
-| Purchase Frequency | Number of transactions |
-| Total Spent | Total monetary value |
-| Average Order Value | Mean transaction value |
-
----
-
-##  RFM Metric Calculation
-
-###  Recency
-
-
-###  Frequency
-- Calculated as **count of transactions per customer**
-- Each row represents a unique transaction
-
-###  Monetary
-- Total spend per customer
-
----
-
-## RFM Scoring Methodology
-
-- R, F, and M scored on a **1–5 scale**
-- Scores assigned using **quantile-based ranking**
-- Excel function used: `QUARTILE.INC()`
-
-| Metric | Interpretation |
-|------|---------------|
-| Recency | Lower is better |
-| Frequency | Higher is better |
-| Monetary | Higher is better |
-
----
-
-##  Customer Segmentation Logic
-
-Customers were classified using **nested IF & AND logic**:
-
-| Segment | Description |
-|------|------------|
-| VIP | High R, F, and M |
-| Loyal | High R and F |
-| Regular | Moderate engagement |
-| New Customers | Recent but low frequency |
-| At-Risk | Long inactivity |
-
----
-
-##  Analysis & Dashboard
-
-### PivotTable Analysis
-
-- Customer distribution by segment
-- Revenue contribution by segment
-- Average order value per segment
-- Average recency per segment (heatmap)
-
-### Dashboard Features
-
-- KPI Cards:
-  - Total Customers
-  - Total Revenue
-  - % Revenue from VIPs
-- Charts:
-  - Revenue by Segment
-  - Customer Distribution
-  - Recency vs Frequency Heatmap
-- Conditional formatting to highlight **VIP** and **At-Risk** customers
-
----
-
-##  Key Business Insights
-
-###  VIP Customers
-- Small customer base but highest revenue contribution
-- High purchase frequency and recent activity
-
-**Strategy:**  
- Loyalty rewards, exclusive offers, early access
-
----
-
-###  At-Risk Customers
-- Historically valuable customers with declining activity
-
-**Strategy:**  
- Win-back campaigns, targeted discounts
-
----
-
-###  New Customers
-- Recent purchases with growth potential
-
-**Strategy:**  
- Onboarding journeys and personalized recommendations
-
----
-
-##  Business Value
-
-- Enables targeted marketing strategies
-- Improves customer retention planning
-- Demonstrates real-world Business Analyst workflow
-- Portfolio-ready analytics project
-
----
-
-##Future Enhancements
-
-- Campaign response analysis
-- Cohort and retention analysis
-- Customer Lifetime Value (CLV)
-- Power BI dashboard extension
-
----
-
-
-
+- Removed records with missing customer_id
+- Handled missing quantity values using a business assumption (quantity = 1)
+- Filtered invalid records (quantity > 0, price > 0)
+- Converted columns to appropriate data types
+- Created a calculated column:
 
