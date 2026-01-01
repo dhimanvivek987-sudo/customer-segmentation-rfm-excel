@@ -1,0 +1,94 @@
+# Customer Segmentation using RFM Analysis (Excel & Power Query)
+
+## Project Overview
+
+This project performs **Customer Segmentation using RFM (Recency, Frequency, Monetary) analysis** on raw transactional data to identify **high-value, loyal, at-risk, and new customers**.
+
+The entire workflow is built **end-to-end in Microsoft Excel**, using **Power Query for data cleaning and merging**, **Excel formulas for analytics**, and **PivotTables & dashboards** for business insights.
+
+This project simulates a **real-world Business Analyst use case**, starting from messy raw data and ending with **actionable marketing recommendations**.
+
+---
+
+## Business Objectives
+
+- Segment customers based on purchasing behavior
+- Identify **VIP / high-value customers**
+- Detect **at-risk customers** with churn signals
+- Enable **data-driven marketing strategies**
+- Showcase **Power Query, Excel analytics, and business thinking**
+
+---
+
+## Dataset Description
+
+### Raw Data Sources
+
+| File | Description |
+|----|------------|
+| `transactions.csv` | Transaction-level purchase data |
+| `customers.csv` | Customer master data |
+
+### Key Transaction Columns
+
+- `transaction_id`
+- `customer_id`
+- `product_name`
+- `product_category`
+- `quantity`
+- `price`
+- `transaction_date`
+- `store_location`
+- `payment_method`
+- `discount_applied`
+
+---
+
+## 🛠 Tools & Skills Used
+
+- Microsoft Excel
+- Power Query
+- Advanced Excel formulas (`IF`, `AND`, `QUARTILE.INC`)
+- PivotTables & PivotCharts
+- Conditional Formatting
+- Business analytics & segmentation logic
+
+---
+
+## Data Preparation & Modeling
+
+### Data Cleaning (Power Query)
+
+- Removed records with missing `customer_id`
+- Replaced missing quantities using business assumption (`quantity = 1`)
+- Filtered invalid data (`quantity > 0`, `price > 0`)
+- Converted columns to correct data types
+- Created `total_amount = quantity × price`
+
+---
+
+### Data Merging (Power Query)
+
+- Performed **Left Join** between:
+  - `transactions.csv` and `customers.csv`
+- Join key: `customer_id`
+- Result: **Enriched transaction dataset**
+
+---
+
+### Customer-Level Aggregation
+
+Data was aggregated to **one row per customer**:
+
+| Metric | Description |
+|-----|------------|
+| Last Purchase Date | Most recent transaction |
+| Purchase Frequency | Number of transactions |
+| Total Spent | Total monetary value |
+| Average Order Value | Mean transaction value |
+
+---
+
+##  RFM Metric Calculation
+
+###  Recency
