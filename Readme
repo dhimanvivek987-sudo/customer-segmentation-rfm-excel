@@ -92,3 +92,113 @@ Data was aggregated to **one row per customer**:
 ##  RFM Metric Calculation
 
 ###  Recency
+
+
+###  Frequency
+- Calculated as **count of transactions per customer**
+- Each row represents a unique transaction
+
+###  Monetary
+- Total spend per customer
+
+---
+
+## RFM Scoring Methodology
+
+- R, F, and M scored on a **1–5 scale**
+- Scores assigned using **quantile-based ranking**
+- Excel function used: `QUARTILE.INC()`
+
+| Metric | Interpretation |
+|------|---------------|
+| Recency | Lower is better |
+| Frequency | Higher is better |
+| Monetary | Higher is better |
+
+---
+
+##  Customer Segmentation Logic
+
+Customers were classified using **nested IF & AND logic**:
+
+| Segment | Description |
+|------|------------|
+| VIP | High R, F, and M |
+| Loyal | High R and F |
+| Regular | Moderate engagement |
+| New Customers | Recent but low frequency |
+| At-Risk | Long inactivity |
+
+---
+
+##  Analysis & Dashboard
+
+### PivotTable Analysis
+
+- Customer distribution by segment
+- Revenue contribution by segment
+- Average order value per segment
+- Average recency per segment (heatmap)
+
+### Dashboard Features
+
+- KPI Cards:
+  - Total Customers
+  - Total Revenue
+  - % Revenue from VIPs
+- Charts:
+  - Revenue by Segment
+  - Customer Distribution
+  - Recency vs Frequency Heatmap
+- Conditional formatting to highlight **VIP** and **At-Risk** customers
+
+---
+
+##  Key Business Insights
+
+###  VIP Customers
+- Small customer base but highest revenue contribution
+- High purchase frequency and recent activity
+
+**Strategy:**  
+ Loyalty rewards, exclusive offers, early access
+
+---
+
+###  At-Risk Customers
+- Historically valuable customers with declining activity
+
+**Strategy:**  
+ Win-back campaigns, targeted discounts
+
+---
+
+###  New Customers
+- Recent purchases with growth potential
+
+**Strategy:**  
+ Onboarding journeys and personalized recommendations
+
+---
+
+##  Business Value
+
+- Enables targeted marketing strategies
+- Improves customer retention planning
+- Demonstrates real-world Business Analyst workflow
+- Portfolio-ready analytics project
+
+---
+
+##Future Enhancements
+
+- Campaign response analysis
+- Cohort and retention analysis
+- Customer Lifetime Value (CLV)
+- Power BI dashboard extension
+
+---
+
+
+
+
